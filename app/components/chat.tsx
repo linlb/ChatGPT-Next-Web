@@ -136,6 +136,7 @@ function PromptToast(props: {
 }) {
   const chatStore = useChatStore();
   const session = chatStore.currentSession();
+
   const context = session.mask.context;
 
   return (
@@ -593,6 +594,10 @@ export function Chat() {
     chatStore.onUserInput(content).then(() => setIsLoading(false));
     inputRef.current?.focus();
   };
+  //打开虚拟窗口
+  const openWind = (content: string) => {
+    console.log("openWind:", content);
+  };
 
   const context: RenderMessage[] = session.mask.hideContext
     ? []
@@ -795,6 +800,14 @@ export function Chat() {
                             >
                               {Locale.Chat.Actions.Retry}
                             </div>
+                            {session.mask.showDev && (
+                              <div
+                                className={styles["chat-message-top-action"]}
+                                onClick={() => openWind(message.content)}
+                              >
+                                {Locale.Chat.Actions.OpenWind}
+                              </div>
+                            )}
                           </>
                         )}
 

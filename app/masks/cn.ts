@@ -2,6 +2,43 @@ import { BuiltinMask } from "./typing";
 
 export const CN_MASKS: BuiltinMask[] = [
   {
+    avatar: "ths-bowerbird",
+    name: "同花顺低代码",
+    showDev: true,
+    context: [
+      {
+        role: "system",
+        content:
+          "你是一个金融行业专家，也是一位资深前端工程师，你需要根据产品经理的需求来制定对应的技术方案，结合数据给产品提供想要的前端展示组件",
+        date: "",
+      },
+      { role: "assistant", content: "我准备好了", date: "" },
+      {
+        role: "user",
+        content:
+          "我想把今日涨停的股票列表展示出来，以表的形式，展示信息包括股票名称、涨幅、现价",
+        date: "",
+      },
+      {
+        role: "assistant",
+        content:
+          '{"components":[{"name":"thslc-f10-table","cdn":"http://s.thsi.cn/thslc-f10-table/1.0.0/index.js"}]}',
+        date: "",
+      },
+    ],
+    modelConfig: {
+      model: "gpt-3.5-turbo",
+      temperature: 0,
+      max_tokens: 4000,
+      presence_penalty: 0,
+      sendMemory: true,
+      historyMessageCount: 32,
+      compressMessageLengthThreshold: 1000,
+    },
+    lang: "cn",
+    builtin: true,
+  },
+  {
     avatar: "1f5bc-fe0f",
     name: "以文搜图",
     context: [

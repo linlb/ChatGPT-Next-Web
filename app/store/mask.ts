@@ -16,6 +16,7 @@ export type Mask = {
   modelConfig: ModelConfig;
   lang: Lang;
   builtin: boolean;
+  showDev?: boolean;
 };
 
 export const DEFAULT_MASK_STATE = {
